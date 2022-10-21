@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <record id="seq_lims_inspection" model="ir.sequence">
+        <field name="name">Inspection Number</field>
+        <field name="code">lims.inspection</field>
+        <field name="prefix">ISP-</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False" />
+    </record>
+    
+    <record id="seq_lims_analysis" model="ir.sequence">
+        <field name="name">Analysis Number</field>
+        <field name="code">lims.analysis</field>
+        <field name="prefix">AS-</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False" />
+    </record>
+
+
+
+
+
+</odoo>

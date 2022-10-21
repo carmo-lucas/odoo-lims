@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem id="menu_lims_root" name="LIMS" sequence="0" 
+    web_icon="lims,static/description/icon.png"/>  <!-- adicionar o 'icone' -->
+
+    <menuitem 
+    id="menu_product_master" 
+    name="Product Info" 
+    parent="menu_lims_root" 
+    sequence="1" />
+
+    <menuitem 
+    id="menu_criteria_master" 
+    name="Criteria" 
+    parent="menu_lims_root" 
+    sequence="2" />
+
+    <menuitem 
+    id="menu_inspections_master" 
+    name="Inspections" 
+    parent="menu_lims_root" 
+    sequence="3" />
+    
+    <menuitem 
+    id="menu_master_data" 
+    name="Master Data" 
+    parent="menu_lims_root" 
+    sequence="4" />
+    
+
+</odoo>

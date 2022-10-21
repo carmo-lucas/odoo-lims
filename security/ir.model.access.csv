@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.lims.criteria,access_lims_criteria,lims.model_lims_criteria,base.group_user,1,1,1,1
+access.lims.inspection,access_lims_inspection,lims.model_lims_inspection,base.group_user,1,1,1,1
+access_lims_specification,access_lims_specification,lims.model_lims_specification,base.group_user,1,1,1,1
+access_lims_analysis,access_lims_analysis,lims.model_lims_analysis,base.group_user,1,1,1,1

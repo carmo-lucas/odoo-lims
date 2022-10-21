@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Patient form view -->
+    <record id="view_lims_inspection_form" model="ir.ui.view">
+        <field name="name">lims.inspection.form</field>
+        <field name="model">lims.inspection</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_validate" class="oe_highlight" string="Validate Inspection" type="object" status="open,in_progress" />
+                    <button name="action_cancel_inspection" string="Cancel Inspection" type="object" status="open,in_progress" />
+                    <field name="status" widget="statusbar" />
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Fail" bg_color="bg-danger" attrs="{'invisible':[('status','!=','fail')]}" />
+                    <widget name="web_ribbon" title="Pass" attrs="{'invisible':[('status','!=', 'pass')]}" />
+                    <div class="oe_title">
+                        <label for="ref" string="Inspection" />
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_id" />
+                            <field name="date_created" />
+                            <field name="date_approved" />
+                        </group>
+                        <group>
+                            <field name="lot_id" />
+                            <field name="lot_size" />
+                            <field name="sample_size" />
+                            <!-- <field name="lot_size"/> -->
+                            <field name="approver_uid" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Analysis" name="lims_analysis">
+                            <field name="analysis_ids">
+                                <tree editable="bottom">
+                                    <field name="criteria_id" />
+                                    <field name="specification_acceptance" />
+                                    <field name="numeric_result" />
+                                    <field name="qualitative_result" />
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="criteria_id" />
+                                        <field name="specification_acceptance" />
+                                        <field name="numeric_result" />
+                                        <field name="qualitative_result" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"></field>
+                    <field name="activity_ids"></field>
+                    <field name="message_ids"></field>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Patients list/tree view -->
+    <record id="view_lims_inspection_tree" model="ir.ui.view">
+        <field name="name">lims.inspection.tree</field>
+        <field name="model">lims.inspection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref" />
+                <field name="product_id" />
+                <field name="lot_id" />
+                <field name="sample_size" />
+                <field name="date_approved" />
+                <field name="date_created" />
+                <field name="approver_uid" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Action to main menu -->
+    <record id="action_lims_inspection" model="ir.actions.act_window">
+        <field name="name">Inspections</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crie a sua primeira inspeção de qualidade!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_inspection" action="action_lims_inspection" name="Inspections" parent="menu_inspections_master" sequence="1" />
+
+
+</odoo>
